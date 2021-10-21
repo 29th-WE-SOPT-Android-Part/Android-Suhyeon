@@ -1,9 +1,10 @@
-package org.sopt.sopthub
+package org.sopt.sopthub.ui
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import org.sopt.sopthub.databinding.ActivitySignInBinding
+import org.sopt.sopthub.util.shortToast
 
 class SignInActivity : AppCompatActivity() {
 
@@ -19,12 +20,14 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun initSignInBtnClick() {
-        binding.btnLogin.setOnClickListener {
-            if(binding.etId.text.isNotBlank() && binding.etPw.text.isNotBlank()) {
-                Toast.makeText(this, "강수현님 환영합니다", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, HomeActivity::class.java))
-            }else {
-                Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+        with(binding) {
+            btnLogin.setOnClickListener {
+                if (etId.text.isNotBlank() && etPw.text.isNotBlank()) {
+                    shortToast("강수현님 환영합니다")
+                    startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+                } else {
+                    shortToast("로그인 실패")
+                }
             }
         }
     }

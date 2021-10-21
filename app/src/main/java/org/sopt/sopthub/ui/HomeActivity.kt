@@ -1,4 +1,4 @@
-package org.sopt.sopthub
+package org.sopt.sopthub.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

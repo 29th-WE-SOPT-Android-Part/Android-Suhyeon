@@ -1,8 +1,8 @@
-package org.sopt.sopthub
+package org.sopt.sopthub.ui
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import org.sopt.sopthub.databinding.ActivitySignUpBinding
+import org.sopt.sopthub.util.shortToast
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -17,11 +17,13 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun initSignUpBtnClick() {
-        binding.btnSignUpFinish.setOnClickListener {
-            if (binding.etName.text.isNotBlank() && binding.etId.text.isNotBlank() && binding.etPw.text.isNotBlank()) {
-                finish()
-            } else {
-                Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
+        with(binding) {
+            btnSignUpFinish.setOnClickListener {
+                if (etName.text.isNotBlank() && etId.text.isNotBlank() && etPw.text.isNotBlank()) {
+                    finish()
+                } else {
+                    shortToast("입력되지 않은 정보가 있습니다")
+                }
             }
         }
     }
