@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SOPTHub">
         <activity
-            android:name=".SignInActivity"
+            android:name=".ui.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity"/>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".ui.SignUpActivity"/>
+        <activity android:name=".ui.HomeActivity"/>
     </application>
 
 </manifest>
