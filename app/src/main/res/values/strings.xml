@@ -16,4 +16,8 @@
     <string name="age23">23</string>
     <string name="intp">INTP</string>
     <string name="my_story">안녕하세요! 반갑습니다.</string>
+    <string name="follower">팔로워\n목록</string>
+    <string name="repository">레포지토리\n목록</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
