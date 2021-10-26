@@ -1,24 +1,24 @@
-package org.sopt.sopthub.ui
+package org.sopt.sopthub.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import org.sopt.sopthub.R
 import org.sopt.sopthub.data.RepoData
 import org.sopt.sopthub.databinding.FragmentRepositoryBinding
-import org.sopt.sopthub.ui.adapter.RepoAdapter
+import org.sopt.sopthub.ui.base.BindingFragment
+import org.sopt.sopthub.ui.view.adapter.RepoAdapter
 
-class RepositoryFragment : Fragment() {
+class RepositoryFragment :
+    BindingFragment<FragmentRepositoryBinding>(R.layout.fragment_repository) {
     private lateinit var repoAdapter: RepoAdapter
-    private var _binding: FragmentRepositoryBinding? = null
-    private val binding get() = _binding ?: error("binding이 초기화되지 않았습니다.")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRepositoryBinding.inflate(layoutInflater, container, false)
+        super.onCreateView(inflater, container, savedInstanceState)
 
         initAdapter()
 
@@ -39,10 +39,5 @@ class RepositoryFragment : Fragment() {
         )
 
         repoAdapter.notifyDataSetChanged()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

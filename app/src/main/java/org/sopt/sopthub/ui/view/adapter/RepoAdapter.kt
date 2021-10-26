@@ -1,4 +1,4 @@
-package org.sopt.sopthub.ui.adapter
+package org.sopt.sopthub.ui.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

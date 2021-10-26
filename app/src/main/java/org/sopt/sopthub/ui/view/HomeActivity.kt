@@ -1,19 +1,16 @@
-package org.sopt.sopthub.ui
+package org.sopt.sopthub.ui.view
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import org.sopt.sopthub.R
 import org.sopt.sopthub.databinding.ActivityHomeBinding
+import org.sopt.sopthub.ui.base.BindingActivity
 
-class HomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityHomeBinding
+class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home) {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
 
         initTransactionEvent()
-
-        setContentView(binding.root)
     }
 
     private fun initTransactionEvent() {
@@ -23,11 +20,13 @@ class HomeActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().add(R.id.container_rec, followerFragment).commit()
 
         binding.btnFollower.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.container_rec, followerFragment).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.container_rec, followerFragment)
+                .commit()
         }
 
         binding.btnRepo.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.container_rec, repositoryFragment).commit()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container_rec, repositoryFragment).commit()
         }
     }
 }
