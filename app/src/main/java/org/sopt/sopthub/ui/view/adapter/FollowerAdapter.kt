@@ -1,4 +1,4 @@
-package org.sopt.sopthub.ui.adapter
+package org.sopt.sopthub.ui.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +8,12 @@ import org.sopt.sopthub.databinding.ItemFollowerBinding
 
 class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() {
     val userList = mutableListOf<FollowerData>()
+
+    private var followerItemClickListener: ((String, String, String) -> Unit)? = null
+
+    fun setFollowerItemClickListener(listener: (String, String, String) -> Unit) {
+        followerItemClickListener = listener
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -27,10 +33,13 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
 
     override fun getItemCount(): Int = userList.size
 
-    class FollowerViewHolder(private val binding: ItemFollowerBinding) :
+    inner class FollowerViewHolder(private val binding: ItemFollowerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: FollowerData) {
             binding.userInfoData = data
+            binding.clFollower.setOnClickListener {
+                followerItemClickListener?.invoke(data.imgUrl, data.name, data.introduce)
+            }
         }
     }
 
