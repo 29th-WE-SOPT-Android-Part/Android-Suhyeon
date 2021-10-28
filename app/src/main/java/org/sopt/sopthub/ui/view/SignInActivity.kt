@@ -1,19 +1,16 @@
-package org.sopt.sopthub.ui
+package org.sopt.sopthub.ui.view
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import org.sopt.sopthub.R
 import org.sopt.sopthub.databinding.ActivitySignInBinding
+import org.sopt.sopthub.ui.base.BindingActivity
 import org.sopt.sopthub.util.shortToast
 
-class SignInActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivitySignInBinding
+class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignInBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         initSignInBtnClick()
         initSignUpBtnClick()
