@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.sopthub.R
 import org.sopt.sopthub.data.FollowerData
 import org.sopt.sopthub.databinding.FragmentFollowerBinding
 import org.sopt.sopthub.ui.base.BindingFragment
 import org.sopt.sopthub.ui.view.adapter.FollowerAdapter
 import org.sopt.sopthub.util.FollowerItemDecoration
+import org.sopt.sopthub.util.ItemTouchHelperCallback
 import org.sopt.sopthub.util.dp
 
 class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragment_follower) {
@@ -25,6 +27,7 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
 
         initAdapter()
         initFollowerItemDecoration()
+        initItemTouchHelper()
 
         return binding.root
     }
@@ -66,5 +69,9 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
                 color = ContextCompat.getColor(requireContext(), R.color.sopt_pink)
             )
         )
+    }
+
+    private fun initItemTouchHelper() {
+        ItemTouchHelper(ItemTouchHelperCallback(followerAdapter)).attachToRecyclerView(binding.rvFollower)
     }
 }

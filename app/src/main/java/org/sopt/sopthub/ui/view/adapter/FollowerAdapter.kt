@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.sopthub.data.FollowerData
 import org.sopt.sopthub.databinding.ItemFollowerBinding
+import org.sopt.sopthub.util.ItemTouchHelperListener
 
-class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() {
+class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>(),
+    ItemTouchHelperListener {
     val userList = mutableListOf<FollowerData>()
 
     private var followerItemClickListener: ((String, String, String) -> Unit)? = null
@@ -41,6 +43,19 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
                 followerItemClickListener?.invoke(data.imgUrl, data.name, data.introduce)
             }
         }
+    }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
+        val item = userList[fromPosition]
+        userList.removeAt(fromPosition)
+        userList.add(toPosition, item)
+        notifyItemMoved(fromPosition, toPosition)
+        return true
+    }
+
+    override fun onItemSwipe(position: Int) {
+        userList.removeAt(position)
+        notifyItemRemoved(position)
     }
 
 }
