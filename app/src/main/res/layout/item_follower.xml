@@ -13,8 +13,7 @@
         android:id="@+id/cl_follower"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rectangle_border_orange_3"
+        android:layout_marginBottom="0dp"
         android:padding="10dp">
 
         <ImageView

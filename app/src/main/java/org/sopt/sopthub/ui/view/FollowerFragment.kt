@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import org.sopt.sopthub.R
 import org.sopt.sopthub.data.FollowerData
 import org.sopt.sopthub.databinding.FragmentFollowerBinding
 import org.sopt.sopthub.ui.base.BindingFragment
 import org.sopt.sopthub.ui.view.adapter.FollowerAdapter
+import org.sopt.sopthub.util.FollowerItemDecoration
+import org.sopt.sopthub.util.dp
 
 class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragment_follower) {
     private lateinit var followerAdapter: FollowerAdapter
@@ -21,6 +24,7 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
         super.onCreateView(inflater, container, savedInstanceState)
 
         initAdapter()
+        initFollowerItemDecoration()
 
         return binding.root
     }
@@ -53,5 +57,14 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
         }
         intent.putExtras(bundle)
         startActivity(intent)
+    }
+
+    private fun initFollowerItemDecoration() {
+        binding.rvFollower.addItemDecoration(
+            FollowerItemDecoration(
+                dividerHeight = 5.dp, padding = 5.dp,
+                color = ContextCompat.getColor(requireContext(), R.color.sopt_pink)
+            )
+        )
     }
 }
