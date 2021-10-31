@@ -21,7 +21,7 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
             btnLogin.setOnClickListener {
                 if (etId.text.isNotBlank() && etPw.text.isNotBlank()) {
                     shortToast("강수현님 환영합니다")
-                    startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+                    startActivity(Intent(this@SignInActivity, MainActivity::class.java))
                 } else {
                     shortToast("로그인 실패")
                 }

@@ -16,7 +16,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
 
     private fun initSignUpBtnClick() {
         with(binding) {
-            btnSignUpFinish.setOnClickListener {
+            btnSignUp.setOnClickListener {
                 if (etName.text.isNotBlank() && etId.text.isNotBlank() && etPw.text.isNotBlank()) {
                     finish()
                 } else {
