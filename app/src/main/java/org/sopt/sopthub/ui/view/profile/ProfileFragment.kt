@@ -1,14 +1,14 @@
-package org.sopt.sopthub.ui.view
+package org.sopt.sopthub.ui.view.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import org.sopt.sopthub.R
-import org.sopt.sopthub.databinding.FragmentHomeBinding
+import org.sopt.sopthub.databinding.FragmentProfileBinding
 import org.sopt.sopthub.ui.base.BindingFragment
 
-class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+class ProfileFragment : BindingFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,12 +21,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
         return binding.root
     }
-    //이걸 꼭 해야되나?
 
     private fun initTransactionEvent() {
-        val followerFragment = FollowerFragment()
-        val repositoryFragment = RepositoryFragment()
-//수정부탁 supportFragmentManager
+        val followerFragment = FollowerListFragment()
+        val repositoryFragment = RepositoryListFragment()
+
         childFragmentManager.beginTransaction().add(R.id.container_rec, followerFragment).commit()
 
         binding.btnFollower.setOnClickListener {
@@ -39,4 +38,5 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                 .replace(R.id.container_rec, repositoryFragment).commit()
         }
     }
+
 }

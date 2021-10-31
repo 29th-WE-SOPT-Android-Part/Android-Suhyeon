@@ -6,6 +6,9 @@ import org.sopt.sopthub.R
 import org.sopt.sopthub.databinding.ActivityMainBinding
 import org.sopt.sopthub.ui.base.BindingActivity
 import org.sopt.sopthub.ui.view.adapter.MainViewPagerAdapter
+import org.sopt.sopthub.ui.view.home.HomeFragment
+import org.sopt.sopthub.ui.view.image.ImageFragment
+import org.sopt.sopthub.ui.view.profile.ProfileFragment
 
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
     private lateinit var mainViewPagerAdapter: MainViewPagerAdapter

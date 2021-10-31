@@ -1,10 +1,11 @@
-package org.sopt.sopthub.ui.view
+package org.sopt.sopthub.ui.view.user
 
 import android.content.Intent
 import android.os.Bundle
 import org.sopt.sopthub.R
 import org.sopt.sopthub.databinding.ActivitySignInBinding
 import org.sopt.sopthub.ui.base.BindingActivity
+import org.sopt.sopthub.ui.view.MainActivity
 import org.sopt.sopthub.util.shortToast
 
 class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {

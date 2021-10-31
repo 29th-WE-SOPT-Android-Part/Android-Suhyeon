@@ -1,4 +1,4 @@
-package org.sopt.sopthub.ui.view
+package org.sopt.sopthub.ui.view.image
 
 import android.os.Bundle
 import android.view.LayoutInflater

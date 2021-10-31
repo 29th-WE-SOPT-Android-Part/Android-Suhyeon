@@ -1,4 +1,4 @@
-package org.sopt.sopthub.ui.view
+package org.sopt.sopthub.ui.view.profile
 
 import android.os.Bundle
 import org.sopt.sopthub.R

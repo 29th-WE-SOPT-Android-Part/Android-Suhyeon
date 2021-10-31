@@ -1,4 +1,4 @@
-package org.sopt.sopthub.ui.view
+package org.sopt.sopthub.ui.view.profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,14 +9,15 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.sopthub.R
 import org.sopt.sopthub.data.FollowerData
-import org.sopt.sopthub.databinding.FragmentFollowerBinding
+import org.sopt.sopthub.databinding.FragmentFollowerListBinding
 import org.sopt.sopthub.ui.base.BindingFragment
 import org.sopt.sopthub.ui.view.adapter.FollowerAdapter
 import org.sopt.sopthub.util.FollowerItemDecoration
 import org.sopt.sopthub.util.ItemTouchHelperCallback
 import org.sopt.sopthub.util.dp
 
-class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragment_follower) {
+class FollowerListFragment :
+    BindingFragment<FragmentFollowerListBinding>(R.layout.fragment_follower_list) {
     private lateinit var followerAdapter: FollowerAdapter
 
     override fun onCreateView(
@@ -26,7 +27,7 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
         super.onCreateView(inflater, container, savedInstanceState)
 
         initAdapter()
-        initFollowerItemDecoration()
+        //initFollowerItemDecoration()
         initItemTouchHelper()
 
         return binding.root
