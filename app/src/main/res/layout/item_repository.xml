@@ -36,10 +36,11 @@
 
             <TextView
                 android:id="@+id/tv_introduce"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="23dp"
+                android:layout_marginEnd="20dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/noto_sans_kr_regular"
                 android:maxLines="1"
@@ -49,7 +50,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_name"
                 app:layout_constraintTop_toBottomOf="@id/tv_name"
-                tools:text="@string/my_story" />
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="@string/test" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

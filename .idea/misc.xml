@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/drawable/ic_setting_white.xml" value="0.13046875" />
         <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/drawable/rectangle_border_orange_3.xml" value="0.26979166666666665" />
         <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/drawable/rectangle_border_pink_5.xml" value="0.19166666666666668" />
         <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/drawable/rectangle_fill_gray.xml" value="0.19166666666666668" />
@@ -18,6 +19,8 @@
         <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/layout/fragment_follower.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/layout/fragment_follower_rec.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/layout/fragment_follower_tab.xml" value="0.1203125" />
+        <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/layout/fragment_following_tab.xml" value="0.1203125" />
         <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/layout/fragment_image.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Android-Suhyeon/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
