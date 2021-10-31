@@ -19,7 +19,8 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
         bundle?.let{
             val name = it.getString("name") ?: ""
             val introduce = it.getString("introduce") ?: ""
-            binding.userInfoData = FollowerData("imgUrl", name, introduce)
+            val imgUrl = it.getString("imgUrl") ?: ""
+            binding.userInfoData = FollowerData(imgUrl, name, introduce)
         }
     }
 

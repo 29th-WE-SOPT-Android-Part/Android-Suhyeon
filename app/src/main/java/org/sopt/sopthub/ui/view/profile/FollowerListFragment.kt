@@ -39,9 +39,9 @@ class FollowerListFragment :
 
         followerAdapter.userList.addAll(
             listOf(
-                FollowerData("img link", "문다빈", "안드로이드 파트장"),
-                FollowerData("img link", "장혜령", "iOS 파트장"),
-                FollowerData("img link", "김우영", "서버파트장")
+                FollowerData("https://cdn.pixabay.com/photo/2020/10/21/19/43/jack-o-lanterns-5674148_960_720.jpg", "문다빈", "안드로이드 파트장"),
+                FollowerData("https://cdn.pixabay.com/photo/2020/10/21/19/43/jack-o-lanterns-5674148_960_720.jpg", "장혜령", "iOS 파트장"),
+                FollowerData("https://cdn.pixabay.com/photo/2020/09/23/19/58/halloween-5596921_960_720.jpg", "김우영", "서버파트장")
             )
         )
 
