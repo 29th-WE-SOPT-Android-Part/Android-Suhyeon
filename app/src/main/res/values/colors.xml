@@ -14,4 +14,6 @@
     <color name="gray">#d0d0d0</color>
     <color name="light_pink">#fa79b0</color>
     <color name="dark_gray">#8f9090</color>
+    <color name="line_gray">#dde2e5</color>
+    <color name="deep_gray">#9b9b9b</color>
 </resources>
