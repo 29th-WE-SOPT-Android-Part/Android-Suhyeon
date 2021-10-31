@@ -17,6 +17,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(R.layout.fragmen
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
 
+        initProfile()
         initTransactionEvent()
 
         return binding.root
@@ -29,13 +30,28 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(R.layout.fragmen
         childFragmentManager.beginTransaction().add(R.id.container_rec, followerFragment).commit()
 
         binding.btnFollower.setOnClickListener {
+            with(binding) {
+                btnFollower.isSelected = true
+                btnRepo.isSelected = false
+            }
             childFragmentManager.beginTransaction().replace(R.id.container_rec, followerFragment)
                 .commit()
         }
 
         binding.btnRepo.setOnClickListener {
+            with(binding) {
+                btnFollower.isSelected = false
+                btnRepo.isSelected = true
+            }
             childFragmentManager.beginTransaction()
                 .replace(R.id.container_rec, repositoryFragment).commit()
+        }
+    }
+
+    private fun initProfile() {
+        with(binding) {
+            btnFollower.isSelected = true
+            imgUrl = "https://cdn.pixabay.com/photo/2020/10/21/19/43/jack-o-lanterns-5674148_960_720.jpg"
         }
     }
 
