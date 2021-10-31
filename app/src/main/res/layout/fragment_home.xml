@@ -10,117 +10,50 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_profile"
+        <ImageView
+            android:id="@+id/tv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/img_github"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_github"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:text="@string/github"
+            android:textColor="@color/sopt_pink"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_logo"
+            app:layout_constraintStart_toStartOf="@id/tv_logo"
+            app:layout_constraintTop_toBottomOf="@id/tv_logo" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_follow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_pink"
-            app:layout_constraintTop_toTopOf="parent">
+            app:tabIndicatorColor="@color/sopt_pink"
+            app:tabIndicatorHeight="3dp"
+            android:textSize="16sp"
+            android:layout_marginTop="23dp"
+            app:tabTextColor="@color/mild_gray"
+            app:tabSelectedTextColor="@color/sopt_pink"
+            app:layout_constraintTop_toBottomOf="@id/tv_github">
 
-            <ImageView
-                android:id="@+id/iv_profile"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="147dp"
-                android:layout_marginTop="22dp"
-                android:src="@mipmap/ic_launcher"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        </com.google.android.material.tabs.TabLayout>
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="@string/kang"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_profile" />
-
-            <TextView
-                android:id="@+id/tv_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:text="@string/onpyeong"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_name" />
-
-            <View
-                android:id="@+id/bar_intro"
-                android:layout_width="2dp"
-                android:layout_height="0dp"
-                android:background="@color/white"
-                android:layout_marginEnd="2dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="2dp"
-                app:layout_constraintEnd_toStartOf="@id/tv_introduce"
-                app:layout_constraintTop_toTopOf="@id/tv_introduce"
-                app:layout_constraintBottom_toBottomOf="@id/tv_introduce"/>
-
-            <TextView
-                android:id="@+id/tv_introduce"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="16dp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:text="@string/short_intro"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_id"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_follower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="11dp"
-            android:paddingVertical="13dp"
-            android:paddingHorizontal="45dp"
-            android:background="@drawable/selector_home_list_btn"
-            android:text="@string/follower"
-            android:fontFamily="@font/noto_sans_kr_regular"
-            android:textSize="14sp"
-            android:textColor="@color/sopt_black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cl_profile" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_repo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="13dp"
-            android:background="@drawable/selector_home_list_btn"
-            android:paddingVertical="13dp"
-            android:paddingStart="34dp"
-            android:paddingEnd="35dp"
-            android:text="@string/repository"
-            android:fontFamily="@font/noto_sans_kr_regular"
-            android:textSize="14sp"
-            android:textColor="@color/sopt_black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btn_follower" />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/container_rec"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_follow"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_follower" />
+            app:layout_constraintTop_toBottomOf="@id/tl_follow"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
