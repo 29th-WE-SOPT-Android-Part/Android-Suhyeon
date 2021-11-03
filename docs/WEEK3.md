@@ -2,9 +2,9 @@
 
 - **실행화면**
 
-  | SignInActivity & SignUpActivity                              | ProfileFragment & HomeFragment                               |
-  | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | ![29week2_detail](https://user-images.githubusercontent.com/70002218/139585927-10961789-d1d3-404c-80fc-9e9978377a39.gif) | ![week3](https://user-images.githubusercontent.com/70002218/139585992-b4646fc2-710e-42a8-8b49-b392408d2613.gif) |
+  | SignInActivity & SignUpActivity                              | ProfileFragment & HomeFragment                               | ImageFragment                                                |
+  | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | ![29week2_detail](https://user-images.githubusercontent.com/70002218/139585927-10961789-d1d3-404c-80fc-9e9978377a39.gif) | ![week3](https://user-images.githubusercontent.com/70002218/139585992-b4646fc2-710e-42a8-8b49-b392408d2613.gif) | ![week3image](https://user-images.githubusercontent.com/70002218/140157666-86e74b10-0384-40e5-8d87-a93a0dc23479.gif) |
 
 
 
@@ -530,7 +530,50 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
 
 #### 🍁 *ImageFragment*
 
-준비중....🐌
+- **ImageFragment**
+
+```kotlin
+private fun initAttachBtnClick() {
+        binding.btnAttach.setOnClickListener {
+            val galleryPermission = ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            if (galleryPermission == PackageManager.PERMISSION_GRANTED) { //권한 허가
+                accessGallery()
+            } else {
+                //권한 요청
+                permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
+        }
+    }
+
+    private val permissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            when (isGranted) {
+                true -> accessGallery()
+                false -> requireContext().shortToast("갤러리 권한을 허용해주세요.")
+            }
+        }
+
+    private fun accessGallery() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        requestImage.launch(intent)
+    }
+
+    private val requestImage =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
+            if (activityResult.resultCode == RESULT_OK) {
+                val intent = activityResult.data
+                val uri = requireNotNull(intent?.data)
+                Glide.with(this).load(uri).into(binding.ivPicture)
+            }
+        }
+```
+
+![image](https://user-images.githubusercontent.com/70002218/140149889-5bbac79c-b142-4fac-bbb5-6c74e1161c4f.png)
 
 
 
@@ -538,5 +581,6 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
 
 - color값도 selector로 변경이 가능하다는 것을 알았다.
 - BottomNavigation
-- BindingAdapter
+- BindingAdapter 활용
+- 갤러리 접근
 
