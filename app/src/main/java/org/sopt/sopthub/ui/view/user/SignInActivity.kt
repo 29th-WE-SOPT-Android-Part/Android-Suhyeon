@@ -10,6 +10,7 @@ import org.sopt.sopthub.data.remote.model.response.ResSignInData
 import org.sopt.sopthub.databinding.ActivitySignInBinding
 import org.sopt.sopthub.ui.base.BindingActivity
 import org.sopt.sopthub.ui.view.MainActivity
+import org.sopt.sopthub.data.local.SOPTHubSharedPreferences
 import org.sopt.sopthub.util.shortToast
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,6 +23,8 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
 
         initSignInBtnClick()
         initSignUpBtnClick()
+        initAutoLoginBtnClick()
+        isAutoLogin()
     }
 
     private fun initSignInBtnClick() {
@@ -43,6 +46,22 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
         }
     }
 
+    private fun initAutoLoginBtnClick() {
+        binding.clAutoLogin.setOnClickListener {
+            binding.ivCheck.isSelected = !binding.ivCheck.isSelected
+
+            SOPTHubSharedPreferences.setAutoLogin(binding.ivCheck.isSelected)
+        }
+    }
+
+    private fun isAutoLogin() {
+        if(SOPTHubSharedPreferences.getAutoLogin()) {
+            shortToast("자동로그인 되었습니다.")
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+    }
+
     private fun postSignIn(reqSignInData: ReqSignInData) {
         val call: Call<ResSignInData> = UserServiceCreator.userService.postSignIn(reqSignInData)
 
@@ -50,9 +69,9 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
             override fun onResponse(call: Call<ResSignInData>, response: Response<ResSignInData>) {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
-
                     shortToast("${data?.email}님 반갑습니다!")
                     startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                    finish()
                 } else
                     shortToast("로그인에 실패하셨습니다.")
             }

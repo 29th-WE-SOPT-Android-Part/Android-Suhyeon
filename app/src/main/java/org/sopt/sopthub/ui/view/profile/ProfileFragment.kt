@@ -1,5 +1,6 @@
 package org.sopt.sopthub.ui.view.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import org.sopt.sopthub.R
 import org.sopt.sopthub.databinding.FragmentProfileBinding
 import org.sopt.sopthub.ui.base.BindingFragment
+import org.sopt.sopthub.ui.view.setting.SettingActivity
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
 
@@ -19,6 +21,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(R.layout.fragmen
 
         initProfile()
         initTransactionEvent()
+        initSettingBtnClick()
 
         return binding.root
     }
@@ -55,4 +58,9 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(R.layout.fragmen
         }
     }
 
+    private fun initSettingBtnClick() {
+        binding.ivSetting.setOnClickListener {
+            startActivity(Intent(requireContext(), SettingActivity::class.java))
+        }
+    }
 }

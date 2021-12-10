@@ -28,4 +28,16 @@
     <string name="test">안녕하세요! 반갑습니다안녕하세요! 반갑습니다</string>
     <string name="guide">사진을 첨부해주세요</string>
     <string name="attach">첨부하기</string>
+    <string name="next">다음으로</string>
+    <string name="start">시작하기</string>
+    <string name="welcome_message">SOPTHub에 오신걸\n환영합니다!</string>
+    <string name="happy_time_message">SOPTHub에서 즐거운 시간\n보내시길 바랍니다!</string>
+    <string name="start_message">SOPTHub를\n시작해 볼까요?</string>
+    <string name="auto_login">자동로그인</string>
+    <string name="setting">환경설정</string>
+    <string name="remove_auto_login">자동로그인 해제</string>
+    <string name="onboarding">온보딩</string>
+    <string name="first_fragment">첫 번째 화면</string>
+    <string name="second_fragment">두 번째 화면</string>
+    <string name="third_fragment">세 번째 화면</string>
 </resources>
