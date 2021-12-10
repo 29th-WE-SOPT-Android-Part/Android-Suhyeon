@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_on_boarding"
+    app:startDestination="@id/onBoardWelcomeFragment">
+
+    <fragment
+        android:id="@+id/onBoardFinishFragment"
+        android:name="org.sopt.sopthub.ui.view.onboard.OnBoardFinishFragment"
+        android:label="@string/third_fragment"
+        tools:layout="@layout/fragment_on_board_finish">
+
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardWelcomeFragment"
+        android:name="org.sopt.sopthub.ui.view.onboard.OnBoardWelcomeFragment"
+        android:label="@string/first_fragment"
+        tools:layout="@layout/fragment_on_board_welcome">
+        <action
+            android:id="@+id/action_onBoardWelcomeFragment_to_onBoardMessageFragment"
+            app:destination="@id/onBoardMessageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardMessageFragment"
+        android:name="org.sopt.sopthub.ui.view.onboard.OnBoardMessageFragment"
+        android:label="@string/second_fragment"
+        tools:layout="@layout/fragment_on_board_message">
+        <action
+            android:id="@+id/action_onBoardMessageFragment_to_onBoardFinishFragment"
+            app:destination="@id/onBoardFinishFragment"
+            app:popUpTo="@id/onBoardWelcomeFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+</navigation>
